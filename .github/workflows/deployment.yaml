@@ -33,7 +33,7 @@ jobs:
       - name: Run semantic-release
         run: npx semantic-release@^24
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PERSONL_TOKEN }}
 
       - name: Debug Info Before Release
         run: |
