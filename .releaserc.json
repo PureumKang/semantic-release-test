@@ -78,7 +78,7 @@
     [
       "@semantic-release/exec",
       {
-        "prepareCmd": "git config --global user.name \"${process.env.GITHUB_ACTOR}\" && git config --global user.email \"${process.env.GITHUB_ACTOR}@users.noreply.github.com\""
+        "prepareCmd": "git config --global user.name \"$(git log -1 --pretty=format:'%an')\" && git config --global user.email \"$(git log -1 --pretty=format:'%ae')\""
       }
     ]
   ]
