@@ -1,11 +1,15 @@
-name: PR Title Validator
+name: PR Title Checker
 
 on:
-  pull_request:
-    types: [opened, edited, synchronize, reopened]
+  pull_request_target:
+    types:
+      - opened
+      - reopened
+      - edited
+      - synchronize
 
 jobs:
-  validate:
+  lint:
     runs-on: ubuntu-latest
     permissions:
       statuses: write
@@ -13,9 +17,3 @@ jobs:
       - uses: aslafy-z/conventional-pr-title-action@v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          preset: "conventionalcommits"
-          success-state: "PR 제목이 컨벤션을 따릅니다."
-          failure-state: "PR 제목이 컨벤션을 따르지 않습니다."
-          context-name: "conventional-pr-title"
-          target-url: "https://www.conventionalcommits.org/en/v1.0.0/#summary"
