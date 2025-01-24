@@ -30,6 +30,9 @@ jobs:
             docs
             perf
             test
+          scopes: |
+            breaking
+            no-release
           requireScope: false
           validateSingleCommit: false
           validateSingleCommitMatchesPrTitle: false
